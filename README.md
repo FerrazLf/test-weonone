@@ -30,7 +30,8 @@ import FreteForm from 'vtex.my-frete-form/FreteForm';
 
 1. Adicione um arquivo block.jsonna raiz do seu componente para configurar as propriedades do bloco.
 
-``` {
+```rbuy
+ {
   "name": "vtex.my-frete-form",
   "title": "Frete Form",
   "description": "Componente para consultar informações de frete usando a API ViaCEP.",
@@ -61,4 +62,44 @@ import FreteForm from 'vtex.my-frete-form/FreteForm';
     "README.md",
     "assets"
   ]
-}```
+} 
+```
+
+### Configuração de Interface (interfaces.json)
+1. Adicione um arquivo interfaces.jsonpara definir as interfaces usadas pelo bloco.
+
+``` {
+  "version": "1",
+  "blocks": {
+    "vtex.my-frete-form": {
+      "components": {
+        "FreteForm": {
+          "props": {
+            "setCepData": {
+              "type": "function",
+              "args": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "data": {
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        // Defina a estrutura de CepData aqui
+                      }
+                    }
+                  }
+                }
+              ],
+              "returns": "void"
+            }
+          }
+        }
+      }
+    }
+  }
+}
