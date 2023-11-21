@@ -29,7 +29,7 @@ const FreteInput: React.FC<FreteInputProps> = ({}) => {
     <div>
       <CepService onCepDataChange={handleCepDataChange} onError={handleError} />
       {cepData && (
-        <div>
+        <div >
           <h3>Dados do Frete</h3>
           <p>CEP: {cepData.cep}</p>
           <p>Logradouro: {cepData.logradouro}</p>

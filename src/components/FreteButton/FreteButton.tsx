@@ -9,7 +9,7 @@ interface FreteButtonProps {
 const FreteButton: React.FC<FreteButtonProps> = ({ onClick, loading }) => {
   return (
     <div>
-      <button onClick={onClick} disabled={loading}>
+      <button  onClick={onClick} disabled={loading}>
         Consultar
       </button>
     </div>
