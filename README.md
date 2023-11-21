@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
+# FreteForm Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este componente fornece um formulário para consultar informações de frete com base em um CEP usando a API ViaCEP.
 
-Currently, two official plugins are available:
+## Instalação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Adicione o componente ao seu projeto VTEX IO:
+ 
+``` vtex add vtex.my-frete-form@0.x ```
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+2. No diretório do seu tema ou da sua loja, instale o componente:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```vtex install vtex.my-frete-form ```
+
+
+3. Para usar o componente em sua loja, importe e utilize o componente FreteFormno local desejado
+
+
+```ruby
+
+import React from 'react';
+import FreteForm from 'vtex.my-frete-form/FreteForm';
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Configuração do Bloco (block.json)
+
+
+1. Adicione um arquivo block.jsonna raiz do seu componente para configurar as propriedades do bloco.
+
+``` {
+  "name": "vtex.my-frete-form",
+  "title": "Frete Form",
+  "description": "Componente para consultar informações de frete usando a API ViaCEP.",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "vtex:build": "seu-script-de-build-aqui"
+  },
+  "dependencies": {
+    "react": "3.x",
+    "react-dom": "3.x",
+    "vtex.styleguide": "9.x"
+    // Adicione outras dependências necessárias
+  },
+  "peerDependencies": {
+    "vtex.render-runtime": "9.x"
+  },
+  "builders": {
+    "docs": "vtex.docs@1.x",
+    "docs:dev": "vtex.docs@1.x"
+  },
+  "readme": {
+    "src": "README.md"
+  },
+  "files": [
+    "dist",
+    "scripts",
+    "README.md",
+    "assets"
+  ]
+}```
